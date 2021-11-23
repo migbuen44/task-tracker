@@ -7,9 +7,15 @@ interface CardContainerProps {
   idx: number
 }
 
+ export interface TaskInfo {
+  text: string,
+  color: string,
+  members: string[]
+}
+
 const CardContainer = ( {idx} : CardContainerProps) => {
 
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<TaskInfo[]>([]);
   const [addCardIsOpen, setAddCardIsOpen] = useState(false);
 
   const handleAddTaskClick = () => {
@@ -20,7 +26,7 @@ const CardContainer = ( {idx} : CardContainerProps) => {
     <div className={styles.card_container}>
       <div className={styles.card_wrapper}>
         {tasks.map((task, idx) =>
-          <TaskCard key={`task-card-${idx}`} task={task}/>
+          <TaskCard key={`task-card-${idx}`} task={task} taskIdx={idx} setTasks={setTasks}/>
         )}
       </div>
       {addCardIsOpen ?
