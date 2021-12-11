@@ -16,6 +16,7 @@ interface CardContainerProps {
 const CardContainer = ( {idx} : CardContainerProps) => {
 
   const [tasks, setTasks] = useState<TaskInfo[]>([]);
+
   const [addCardIsOpen, setAddCardIsOpen] = useState(false);
 
   const handleAddTaskClick = () => {
