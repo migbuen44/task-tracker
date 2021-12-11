@@ -1,6 +1,7 @@
 import styles from './cards.module.scss'
 import { useState } from 'react'
 import type { FormEvent, ChangeEvent } from 'react'
+import type { TaskInfo } from './cardContainer'
 
 interface AddCardFormProps {
   setTasks: Function,
@@ -15,7 +16,12 @@ const AddCardForm = ({ setTasks, setAddCardIsOpen, idx } : AddCardFormProps) => 
   const handleAddCardSubmit = (e : FormEvent<HTMLFormElement>) => {
     //setTasks
     e.preventDefault();
-    setTasks((prev: string[]) => [...prev, taskInput])
+    const initializedTask : TaskInfo = {
+      text: taskInput,
+      color: '',
+      members: []
+    }
+    setTasks((prev: TaskInfo[]) => [...prev, initializedTask])
     const form = document.getElementById(`AddCardForm-${idx}`);
     if (form) (form as HTMLFormElement).reset();
   }

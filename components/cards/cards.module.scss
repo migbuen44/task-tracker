@@ -32,3 +32,42 @@ $border: 1px solid black;
 .addCardForm_container {
   border: $border;
 }
+
+.taskCard_container {
+  border: $border;
+  position: relative;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  height: fit-content;
+  min-height: 50px;
+}
+
+.taskColor_container {
+  border: $border;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 3px;
+  margin: 1px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.taskColor_icon {
+  width: 1em;
+  height: 1em;
+  margin: 1px;
+  border-radius: 50%;
+}
+
+.task_container {
+  border: $border;
+  height: fit-content;
+  width: fit-content;
+  padding: 1em;
+  margin: 1px;
+}

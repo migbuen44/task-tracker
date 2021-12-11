@@ -1,9 +1,23 @@
 $border: 1px solid black;
 
+@mixin center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 .container {
   border: $border;
   position: sticky;
   top: 0;
   height: 3.5rem;
   width: 100vw;
+}
+
+.login_button_container {
+  @include center();
+  width: fit-content;
+  padding: 1rem;
+
 }

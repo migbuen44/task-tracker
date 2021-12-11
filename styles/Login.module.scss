@@ -1,0 +1,46 @@
+$border: 1px solid black;
+
+@mixin centerChildren() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin centerSelf() {
+  justify-self: center;
+  align-self: center;
+}
+
+.container {
+  border: $border;
+  height: 100vh;
+  display: flex;
+}
+
+.background_img_container {
+  border: $border;
+  height: 100vh;
+  width: 70vw;
+  background-color: lightblue;
+  @include centerChildren();
+}
+
+.login_section_container {
+  border: $border;
+  height: 100vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.login_form_container {
+  padding: 1rem;
+  justify-self: center;
+  align-self: center;
+}
+
+.app_logo {
+  width: fit-content;
+  padding: 1rem;
+  @include centerSelf();
+}
