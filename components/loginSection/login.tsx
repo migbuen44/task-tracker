@@ -1,19 +1,9 @@
 import styles from './loginSection.module.scss'
+import Form from './form'
 
 const Login = () => {
   return (
-    <div className={styles.login_container}>
-      <form>
-        <div>
-          <label className={styles.email_input}>Email</label>
-          <input />
-        </div>
-        <div>
-          <label className={styles.password_input}>Password</label>
-          <input />
-        </div>
-      </form>
-    </div>
+    <Form login={true} submitCallback={() => console.log('submit')}/>
   )
 }
 

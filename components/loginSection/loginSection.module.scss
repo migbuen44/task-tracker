@@ -1,6 +1,11 @@
 $border: 1px solid black;
 
-.login_container {
+.main_container {
+  border: $border;
+  padding: 1rem;
+}
+
+.form_container {
   border: $border;
   width: fit-content;
   padding: 1rem;
