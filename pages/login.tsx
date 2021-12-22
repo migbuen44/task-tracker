@@ -1,7 +1,7 @@
 import type { NextPage } from 'next'
 import styles from '../styles/Login.module.scss'
 import Head from 'next/head'
-import LoginSection from '../components/loginSection'
+import UserEntry from '../components/userEntry'
 import Link from 'next/link'
 
 const Login: NextPage = () => {
@@ -16,7 +16,7 @@ const Login: NextPage = () => {
           app_logo
         </div>
         <div className={styles.login_form_container}>
-          <LoginSection />
+          <UserEntry />
           <Link href="/" passHref>
             <button>Back to Home</button>
           </Link>
