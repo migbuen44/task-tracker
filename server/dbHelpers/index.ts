@@ -2,12 +2,14 @@ import pool from '../../database/index'
 import type { UserSignUpInfo } from './dbHelper_types'
 
 const db = {
-  addUser: ({ email, name, password }: UserSignUpInfo, callback: Function) => {
+  addUser: async ({ email, name, password }: UserSignUpInfo) => {
     const queryStr = `INSERT INTO users (name, email, password) VALUES ('${name}', '${email})', '${password}') RETURNING id, name, email, team_ids`;
-    pool.query(queryStr, (err, result) => {
-      if (err) return callback(err);
-      callback(null, result);
-    })
+    try {
+      const result = await pool.query(queryStr);
+      return result;
+    } catch (err) {
+      return null;
+    }
   }
 }
 
