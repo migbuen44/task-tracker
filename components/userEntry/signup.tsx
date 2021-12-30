@@ -1,4 +1,4 @@
-import styles from './loginSection.module.scss'
+import styles from './userEntry.module.scss'
 import axios from 'axios'
 import config from '../config'
 import React, { useState } from 'react'

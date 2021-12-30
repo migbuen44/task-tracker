@@ -1,4 +1,4 @@
-import styles from './loginSection.module.scss'
+import styles from './userEntry.module.scss'
 import Login from './login'
 import SignUp from './signup'
 import { useState } from 'react'
