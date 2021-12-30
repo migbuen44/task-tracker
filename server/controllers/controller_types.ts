@@ -1,4 +1,4 @@
-export interface AddUserResponse {
+export interface UserEntryRes {
   id: number,
   name: string,
   email: string,
