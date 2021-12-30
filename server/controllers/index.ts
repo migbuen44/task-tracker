@@ -8,6 +8,11 @@ const controller = {
   addUser: async (req: Request, res: Response) => {
     const { name, email, password } = req.body;
 
+    const dbUser = await db.getUser(email);
+    if(dbUser) {
+      const userInfo = dbUser.rows[0];
+      if(userInfo) return res.sendStatus(409);
+    }
     const passwordHash = await bcrypt.hash(password, 10);
     if(!passwordHash) return res.sendStatus(500);
     const addUserDbArg = {
