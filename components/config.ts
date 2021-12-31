@@ -3,7 +3,7 @@ interface ConfigObject {
 }
 
 const config : ConfigObject = {
-  API_URL : 'https://localhost:4000',
+  API_URL : 'http://localhost:4000',
 }
 
 export default config;
