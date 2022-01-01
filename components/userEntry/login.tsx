@@ -2,6 +2,7 @@ import styles from './userEntry.module.scss'
 import axios from 'axios'
 import config from '../config'
 import React, { useState } from 'react'
+import handleLoginSuccess from './handleEntrySuccess'
 
 const { API_URL } = config;
 
@@ -24,6 +25,8 @@ const Login = ({setSignUpSelected} : LoginProps) => {
     axios.post(`${API_URL}/login`, loginBody)
       .then((response) => {
         console.log(response);
+        const userInfo = response.data;
+        handleLoginSuccess(userInfo);
       })
       .catch((err) => {
         console.log(err);

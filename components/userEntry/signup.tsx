@@ -2,6 +2,8 @@ import styles from './userEntry.module.scss'
 import axios from 'axios'
 import config from '../config'
 import React, { useState } from 'react'
+import handleSignUpSuccess from './handleEntrySuccess'
+import handleEntrySuccess from './handleEntrySuccess'
 
 const { API_URL} = config;
 
@@ -25,7 +27,8 @@ const SignUp = ({ setSignUpSelected } : SignUpProps) => {
     // console.log('signUpBody: ', signUpBody);
     axios.post(`${API_URL}/signup`, signUpBody)
       .then((response) => {
-        console.log(response);
+        // console.log(response);
+        handleSignUpSuccess(response.data);
       })
       .catch((err) => console.log(err));
   }
