@@ -1,7 +1,8 @@
-import styles from './loginSection.module.scss'
+import styles from './userEntry.module.scss'
 import axios from 'axios'
 import config from '../config'
 import React, { useState } from 'react'
+import handleLoginSuccess from './handleEntrySuccess'
 
 const { API_URL } = config;
 
@@ -20,8 +21,16 @@ const Login = ({setSignUpSelected} : LoginProps) => {
   const [password, setPassword] = useState('');
 
   const submitUserLogin = (loginBody: SubmitUserLoginParams) => {
-    console.log('loginBody: ', loginBody);
-    // axios.post(API_URL, loginBody)
+    // console.log('loginBody: ', loginBody);
+    axios.post(`${API_URL}/login`, loginBody)
+      .then((response) => {
+        console.log(response);
+        const userInfo = response.data;
+        handleLoginSuccess(userInfo);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
   }
 
   type submitEvent = React.FormEvent | React.MouseEvent;
@@ -36,11 +45,11 @@ const Login = ({setSignUpSelected} : LoginProps) => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Email</label>
-          <input onChange={((e) => setEmail(e.target.value))} className={styles.email_input}/>
+          <input onChange={((e) => setEmail(e.target.value))} className={styles.email_input} type="email"/>
         </div>
         <div>
           <label>Password</label>
-          <input onChange={((e) => setPassword(e.target.value))}className={styles.password_input}/>
+          <input onChange={((e) => setPassword(e.target.value))}className={styles.password_input} type="password"/>
         </div>
         <button onClick={handleSubmit} type="submit">Login</button>
       </form>
